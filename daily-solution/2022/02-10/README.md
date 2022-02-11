@@ -34,6 +34,8 @@
 
 
 ## 题解
+思路:遍历3轮:分母1轮,分子1轮,检查是否可约(叔叔我们不约)1轮,一旦查出可约,直接把这轮丢弃,反正约分后必有重复.
+
 ```python
 class Solution:
     def simplifiedFractions(self, n: int) -> List[str]:
