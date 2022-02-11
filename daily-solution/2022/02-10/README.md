@@ -33,7 +33,7 @@
 ```
 
 
-# 题解
+## 题解
 ```python
 class Solution:
     def simplifiedFractions(self, n: int) -> List[str]:
