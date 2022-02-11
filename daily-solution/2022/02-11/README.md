@@ -37,7 +37,7 @@
 ## 题解
 思路：先用`list.sort()`从小到大排序，相隔越远则差值必然越大，相反越近越小，使用长度为k的滑窗把右端（最低分与最高分）减左端则得出该选段差值，记录滑窗过程中所有段的差值，取最小值即可。
 ## 实现
-```
+```python
 class Solution:
     def minimumDifference(self, nums: List[int], k: int) -> int:
         nums.sort()
