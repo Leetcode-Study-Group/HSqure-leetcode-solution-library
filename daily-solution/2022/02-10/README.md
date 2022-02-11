@@ -34,7 +34,7 @@
 
 
 # 题解
-```
+```python
 class Solution:
     def simplifiedFractions(self, n: int) -> List[str]:
         fractions_list=[]
