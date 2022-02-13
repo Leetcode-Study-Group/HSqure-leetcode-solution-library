@@ -24,3 +24,29 @@
 
 1 <= text.length <= 10^4
 text 全部由小写英文字母组成
+
+## 我的题解
+```python
+class Solution:
+    # self.balloon_dict = {1:'b', 2:'a', 3:'l', 4:'l', 5:'o', 6:'o', 7:'n'}
+    def maxNumberOfBalloons(self, text: str) -> int:
+        balloon_list = ['b', 'a', 'l', 'l', 'o', 'o', 'n']
+        text_list=[]
+        flag=True
+        cnt=0
+        for i in range(0,len(text)):
+            text_list.append(text[i])
+        
+        while flag:
+            for key in balloon_list:
+                if key in text_list:
+                    text_list.remove(key)
+                else:
+                    flag=False
+                    break
+                if key=='n':
+                    cnt+=1
+
+        return cnt
+
+```
