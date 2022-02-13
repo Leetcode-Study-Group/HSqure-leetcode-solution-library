@@ -28,7 +28,6 @@ text 全部由小写英文字母组成
 ## 我的题解
 ```python
 class Solution:
-    # self.balloon_dict = {1:'b', 2:'a', 3:'l', 4:'l', 5:'o', 6:'o', 7:'n'}
     def maxNumberOfBalloons(self, text: str) -> int:
         balloon_list = ['b', 'a', 'l', 'l', 'o', 'o', 'n']
         text_list=[]
@@ -48,5 +47,10 @@ class Solution:
                     cnt+=1
 
         return cnt
+
+```
+## 最优题解
+
+```python
 
 ```
