@@ -26,6 +26,18 @@
 text 全部由小写英文字母组成
 ```
 
+## 最优题解
+
+```python
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        cnt = Counter(ch for ch in text if ch in "balon")
+        cnt['l']=cnt['l']//2
+        cnt['o']=cnt['o']//2
+        
+        return min(cnt.values()) if len(cnt)==5 else 0
+```
+
 ## 我的题解
 ```python
 class Solution:
@@ -49,15 +61,4 @@ class Solution:
 
         return cnt
 
-```
-## 最优题解
-
-```python
-class Solution:
-    def maxNumberOfBalloons(self, text: str) -> int:
-        cnt = Counter(ch for ch in text if ch in "balon")
-        cnt['l']=cnt['l']//2
-        cnt['o']=cnt['o']//2
-        
-        return min(cnt.values()) if len(cnt)==5 else 0
 ```
