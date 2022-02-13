@@ -1,3 +1,29 @@
+class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
+        def bfs(i, j):
+            grid[i][j] = 0
+            Q = deque([[i, j]])
+            while Q:
+                i, j = Q.popleft()
+                for x, y in [(i-1,j),(i+1,j),(i,j-1),(i,j+1)]:
+                    if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                        grid[x][y] = 0
+                        Q.append([x, y])                  
+
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            if grid[i][0] == 1:    bfs(i, 0)
+            if grid[i][n-1] == 1:  bfs(i, n-1)   
+        for j in range(n):
+            if grid[0][j] == 1:    bfs(0, j)
+            if grid[m-1][j] == 1:  bfs(m-1, j)
+                
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j]: ans += 1
+        return ans
+
 # class Solution:
 #     def connetSearch(self,matrix1,matrix2):
 #         r_addr=[]
