@@ -72,8 +72,8 @@ class Solution:
 
 空间复杂度：O(1)O(1)。
 
-方法二：偶数下标的二分查找
-思路和算法
+#### 方法二：偶数下标的二分查找
+**思路和算法**
 
 由于只出现一次的元素所在下标 xx 的左边有偶数个元素，因此下标 xx 一定是偶数，可以在偶数下标范围内二分查找。二分查找的目标是找到满足 \textit{nums}[x] \ne \textit{nums}[x + 1]nums[x] 
 	
@@ -83,17 +83,17 @@ class Solution:
 
 得到下标 xx 的值之后，\textit{nums}[x]nums[x] 即为只出现一次的元素。
 
-细节
+**细节**
 
 考虑 \textit{mid}mid 和 11 按位与运算的结果，其中 \&& 是按位与运算符：
 
-当 \textit{mid}mid 是偶数时，\textit{mid}~\&~1 = 0mid & 1=0；
+- 当 \textit{mid}mid 是偶数时，\textit{mid}~\&~1 = 0mid & 1=0；
 
-当 \textit{mid}mid 是奇数时，\textit{mid}~\&~1 = 1mid & 1=1。
+- 当 \textit{mid}mid 是奇数时，\textit{mid}~\&~1 = 1mid & 1=1。
 
 因此在得到 \textit{mid}mid 的值之后，将 \textit{mid}mid 的值减去 \textit{mid}~\&~1mid & 1，即可确保 \textit{mid}mid 是偶数，如果原来的 \textit{mid}mid 是偶数则值不变，如果原来的 \textit{mid}mid 是奇数则值减 11。
 
-代码
+**代码**
 
 ```python
 class Solution:
