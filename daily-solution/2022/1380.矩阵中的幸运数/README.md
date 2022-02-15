@@ -36,7 +36,7 @@
 ## 题解
 
 ### 最优题解
-思路:行最小和列最大分别保存到列表里进行比对,相同则输出
+**思路:**行最小和列最大分别保存到列表里进行比对,相同则输出
 
 ```python
 class Solution:
@@ -45,9 +45,8 @@ class Solution:
         colmin = [max(i) for i in zip(*matrix)] # 解压二维数组 python中取列的小trick
         return [i for i in rowmin if i in colmin]
 ```
-
+**解析:**
 注意: Python中，`zip(*info)` 即 `zip(*[[1, 2, 3, 4], [5, 6, 7, 8]])` 相当于 `zip([1, 2, 3, 4], [5, 6, 7, 8])`
-
 因此行列互换操作可通过:
 
 ```python
