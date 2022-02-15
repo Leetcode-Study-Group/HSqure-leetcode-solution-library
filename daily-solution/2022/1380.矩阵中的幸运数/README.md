@@ -38,7 +38,7 @@
 ## 题解
 
 ### 最优题解
-行最小和列最大分别保存到列表里进行比对,相同则输出
+**思路:** 行最小和列最大分别保存到列表里进行比对,相同则输出
 
 ```python
 class Solution:
@@ -63,7 +63,7 @@ class Solution:
 ```
 
 ### 我的题解
-思路:先找行最小,此时和该位置所在行的最大的进行比对,相同则输出
+**思路:** 先找行最小,此时和该位置所在行的最大的进行比对,相同则输出
 ```python
 class Solution:
     def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
