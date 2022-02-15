@@ -46,6 +46,7 @@ class Solution:
         return [i for i in rowmin if i in colmin]
 ```
 **解析:**
+
 注意: Python中，`zip(*info)` 即 `zip(*[[1, 2, 3, 4], [5, 6, 7, 8]])` 相当于 `zip([1, 2, 3, 4], [5, 6, 7, 8])`
 因此行列互换操作可通过:
 
