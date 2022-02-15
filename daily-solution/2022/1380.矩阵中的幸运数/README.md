@@ -55,8 +55,8 @@ class Solution:
 因此行列互换操作可通过:
 
 ```python
->> matrix = [[3,7,8],[9,11,13],[15,16,17]]
->> print( list(zip(*matrix)) )
+>>> matrix = [[3,7,8],[9,11,13],[15,16,17]]
+>>> print( list(zip(*matrix)) )
 
 [(3, 9, 15), (7, 11, 16), (8, 13, 17)]
 
