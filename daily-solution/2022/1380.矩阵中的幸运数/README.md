@@ -46,6 +46,8 @@ class Solution:
         return [i for i in rowmin if i in colmin]
 ```
 
+注意: Python中，`zip(*info)` 即 `zip(*[[1, 2, 3, 4], [5, 6, 7, 8]])` 相当于 `zip([1, 2, 3, 4], [5, 6, 7, 8])`
+
 ### 我的题解
 思路:先找行最小,此时和该位置所在行的最大的进行比对,相同则输出
 ```python
