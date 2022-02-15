@@ -42,7 +42,7 @@
 class Solution:
     def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
         rowmin = [min(i) for i in matrix]
-        colmin = [max(i) for i in zip(*matrix)]
+        colmin = [max(i) for i in zip(*matrix)] # 解压二维数组 python中取列的小trick
         return [i for i in rowmin if i in colmin]
 ```
 
