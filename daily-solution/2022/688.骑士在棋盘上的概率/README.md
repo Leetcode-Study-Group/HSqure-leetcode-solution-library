@@ -70,3 +70,41 @@ class Solution:
         return cur_total_pos / (8 ** k)
 
 ```
+### 我的题解
+
+```python
+class Solution:
+    mov_around = [[1,2],[2,1], [2,-1],[1,-2], [-1,-2],[-2,-1], [-2,1],[-1,2]]
+
+    def move_around(axis):
+        # 遍历所有方向
+        for i in range(0, 8):
+            r_axis = kngi_axis[0] + mov_around[i][0]
+            c_axis = kngi_axis[1] + mov_around[i][1]
+            if (r_axis < 0) or (c_axis < 0):
+                return False 
+            else:
+    
+    def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
+        memo = {}
+        moves = ((-1, -2), (-2, -1),(-2, 1), (-1, 2),(1, -2), (2, -1),(2, 1), (1, 2))
+        def dfs(K, r, c):
+            if r < 0 or c < 0 or r >= N or c >= N:
+                return 0
+            if K == 0:
+                return 1
+            if (K, r, c) in memo:
+                return memo[(K, r, c)]
+            p = 0
+            for move in moves:
+                p += dfs(K-1, r+move[0], c+move[1])
+            p /= 8.0
+            memo[(K, r, c)] = p
+            return p
+        return dfs(K, r, c)
+
+        # 初始位置
+        kngi_axis = [row, column]
+
+        for step in range(1, k+1):
+```
