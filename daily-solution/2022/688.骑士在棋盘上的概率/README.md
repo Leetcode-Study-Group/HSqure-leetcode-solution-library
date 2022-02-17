@@ -70,6 +70,9 @@ class Solution:
         return cur_total_pos / (8 ** k)
 
 ```
+
+---
+
 ### 我的题解
 
 ```python
