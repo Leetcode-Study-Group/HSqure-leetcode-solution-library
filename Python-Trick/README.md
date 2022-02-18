@@ -92,7 +92,6 @@ Python中，`zip(*info)` 即 `zip(*[[1, 2, 3, 4], [5, 6, 7, 8]])` 相当于 `zip
 
 # Python中多层List展平为一层
 ```python
-1.定义减层方法
 
 import functools
 import itertools
