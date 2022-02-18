@@ -85,3 +85,57 @@ Python中，`zip(*info)` 即 `zip(*[[1, 2, 3, 4], [5, 6, 7, 8]])` 相当于 `zip
 [(3, 9, 15), (7, 11, 16), (8, 13, 17)]
 
 ```
+
+# Python中多层List展平为一层
+```python
+1.定义减层方法
+
+import functools
+import itertools
+import numpy
+import operator
+import perfplot
+from collections import Iterable  # or from collections.abc import Iterable
+from iteration_utilities import deepflatten
+
+#使用两次for循环
+def forfor(a):
+    return [item for sublist in a for item in sublist]
+
+#通过sum
+def sum_brackets(a):
+    return sum(a, [])
+
+#使用functools內建模块
+def functools_reduce(a):
+    return functools.reduce(operator.concat, a)
+
+#使用itertools內建模块
+def itertools_chain(a):
+    return list(itertools.chain.from_iterable(a))
+
+#使用numpy
+def numpy_flat(a):
+    return list(numpy.array(a).flat)
+
+#使用numpy
+def numpy_concatenate(a):
+    return list(numpy.concatenate(a))
+
+#自定义函数
+def flatten(items):
+    """Yield items from any nested iterable; see REF."""
+    for x in items:
+        if isinstance(x, Iterable) and not isinstance(x, (str, bytes)):
+            yield from flatten(x)
+        else:
+            yield x
+
+def pylangs_flatten(a):
+    return list(flatten(a))
+
+#使用库iteration_utilities
+def iteration_utilities_deepflatten(a):
+    return list(deepflatten(a, depth=1))
+
+```
