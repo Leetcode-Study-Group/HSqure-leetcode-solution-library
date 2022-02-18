@@ -167,5 +167,4 @@ class Solution:
         # 初始位置
         kngi_axis = [row, column]
 
-        for step in range(1, k+1):
 ```
