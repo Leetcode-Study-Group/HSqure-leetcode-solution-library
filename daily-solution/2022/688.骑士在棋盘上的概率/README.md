@@ -81,15 +81,12 @@ class Solution:
 
 一个骑士有 88 种可能的走法，骑士会从中以等概率随机选择一种。部分走法可能会让骑士离开棋盘，另外的走法则会让骑士移动到棋盘的其他位置，并且剩余的移动次数会减少 11。
 
-定义 \textit{dp}[\textit{step}][i][j]dp[step][i][j] 表示骑士从棋盘上的点 (i, j)(i,j) 出发，走了 \textit{step}step 步时仍然留在棋盘上的概率。特别地，当点 (i, j)(i,j) 不在棋盘上时，\textit{dp}[\textit{step}][i][j] = 0dp[step][i][j]=0；当点 (i, j)(i,j) 在棋盘上且 \textit{step} = 0step=0 时，\textit{dp}[\textit{step}][i][j] = 1dp[step][i][j]=1。对于其他情况，\textit{dp}[\textit{step}][i][j] = \dfrac{1}{8} \times \sum\limits_{\textit{di}, \textit{dj}} \textit{dp}[\textit{step}-1][i+\textit{di}][j+\textit{dj}]dp[step][i][j]= 
-8
-1
-​	
- × 
-di,dj
-∑
-​	
- dp[step−1][i+di][j+dj]。其中 (\textit{di}, \textit{dj})(di,dj) 表示走法对坐标的偏移量，具体为 (-2, -1),(-2,1),(2,-1),(2,1),(-1,-2),(-1,2),(1,-2),(1,2)(−2,−1),(−2,1),(2,−1),(2,1),(−1,−2),(−1,2),(1,−2),(1,2) 共 88 种。
+定义 `[dp][step][i][j` 表示骑士从棋盘上的点` (i, j)(i,j)` 出发，走了`step` 步时仍然留在棋盘上的概率。特别地，当点 `(i, j)(i,j)` 不在棋盘上时，    `[dp][ [step]][i][j]` = `0dp[step][i][j]=0`；当点 `(i, j)(i,j)` 在棋盘上且     `step=0` 时，   ` [dp][ [step]][i][j] = 1dp[step][i][j] = 1`。对于其他情况，    `[dp][ [step]][i][j] = \dfrac  [1]  [8] \times \sum\limits_  [[di],[dj]]`     `[dp][ [step]-1][i+    [di]][j+ [dj]]dp[step][i][j]= 81​	 × di,dj∑`
+` dp[step−1][i+di][j+dj]`。其中 (    [di],     [dj])(di,dj) 表示走法对坐标的偏移量，具体为 `(-2, -1)` ,(-2,1),(2,-1),(2,1),(-1,-2),(-1,2),(1,-2),(1,2)(−2,−1),(−2,1),(2,−1),(2,1),(−1,−2),(−1,2),(1,−2),(1,2`) 共 88 种。
+
+
+
+
 
 
 ```python
