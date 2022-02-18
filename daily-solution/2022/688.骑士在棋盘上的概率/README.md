@@ -136,16 +136,15 @@ class Solution:
 
 ```python
 class Solution:
-    mov_around = [[1,2],[2,1], [2,-1],[1,-2], [-1,-2],[-2,-1], [-2,1],[-1,2]]
-
-    def move_around(axis):
-        # 遍历所有方向
-        for i in range(0, 8):
-            r_axis = kngi_axis[0] + mov_around[i][0]
-            c_axis = kngi_axis[1] + mov_around[i][1]
-            if (r_axis < 0) or (c_axis < 0):
-                return False 
-            else:
+    # mov_around = [[1,2],[2,1], [2,-1],[1,-2], [-1,-2],[-2,-1], [-2,1],[-1,2]]
+    # def move_around(axis):
+    #     # 遍历所有方向
+    #     for i in range(0, 8):
+    #         r_axis = kngi_axis[0] + mov_around[i][0]
+    #         c_axis = kngi_axis[1] + mov_around[i][1]
+    #         if (r_axis < 0) or (c_axis < 0):
+    #             return False 
+    #         else:
     
     def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
         memo = {}
