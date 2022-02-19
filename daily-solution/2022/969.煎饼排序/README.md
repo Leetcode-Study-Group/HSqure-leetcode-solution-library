@@ -53,7 +53,12 @@
 
 ### 我的题解
 #### 思路
-由题意可知，`arr` 是从 `1` 到 `arr.length` 整数的一个排列
+由题意可知，`arr` 是从 `1` 到 `arr.length` 整数的一个排列。而最后一个数（最大，数值等于数组长度）排序好后不会被影响，因此将其所在的范围翻转后，它就排在了第一个，再翻到最后一个则回到了正确位置。
+
+
+<img src="../../../document_source/solution.969.PNG" width = "400" alt="" align=center />
+
+
 
 ```python
 class Solution:
@@ -69,7 +74,10 @@ class Solution:
         max_num = len(arr)
 
         while max_num!=1:
-            print(arr.index(max_num))
+            # 如果当前范围最大数已经在正确的位置，则跳过此轮排序
+            if arr[max_num-1] == max_num:
+                max_num-=1
+                continue
             # 第一步：取当前范围最大的数作为最后一个的所在list翻转至第一个
             arr, k_list = upsidedown(arr, arr.index(max_num)+1, k_list)
             # 第二步：将当前范围整体翻转，此时最大的数字就回到正确位置了
