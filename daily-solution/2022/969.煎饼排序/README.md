@@ -44,10 +44,22 @@
 ## 题解
 
 ### 最优题解
+#### 思路
+英雄所见略同。
 
 ```python
-
-
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        res = []
+        n = len(arr)
+        while n :
+            idx = arr.index(n)
+            res.append(idx+1)
+            arr = arr[:idx+1][::-1]+arr[idx+1:]
+            res.append(n)
+            arr = arr[:n][::-1]+arr[n:]
+            n -= 1
+        return res
 ```
 ---
 
