@@ -59,35 +59,38 @@ class Solution:
         dom_dict={'L':-1, 'R':1, '.':0}
         dom_dict_decode={-1:'L', 1:'R', 0:'.'}
         dom_list = [dom_dict[item] for item in dominoes]
-        flag=True
-        for cnt, i in enumerate(dom_list): 
-            if i!=0 and cnt<len(dom_list)-1:
-                # 首次赋值
-                if flag:
-                    index = cnt
-                    flag=False                
-                if index<0 or index>(len(dom_list)-3):
-                    break
-                index+=i
-                print(index)
+        boc_flag = False
+        cnt=0
+        index=0
+
+        # for cnt, i in enumerate(dom_list): 
+        while index <= (len(dom_list)-1):
+            if dom_list[cnt]!=0 and cnt<len(dom_list)-1:
+                if not boc_flag:
+                    index = cnt + dom_list[cnt]            
+                else:
+                    index = index+1
+
                 # R传播判定
                 while dom_list[index]==0:
+                    print(index)
+                    dom_list[index] = dom_list[cnt]
                     # 防越界
-                    if index<0 or index>(len(dom_list)-3):
+                    if index<0 or index>(len(dom_list)-1):
                         break
-                    dom_list[index] = i
                     # R遇到L反弹一半路程 
                     offset = int((index-cnt)/2)
-                    if i==1 and dom_list[index+1]==-1:
+                    if dom_list[cnt]==1 and dom_list[index+1]==-1:
                         for x in range(0, offset):
-                            dom_list[index-x] = -i
+                            dom_list[index-x] = - dom_list[cnt]
                             if (offset)%2!=0:
                                 dom_list[index-offset] = 0
     
-                    index+=i
+                    index+=dom_list[cnt]
+
+            cnt+=1
                 
-                print(dom_list)
 
         ecode_list = ''.join([dom_dict_decode[item] for item in dom_list])
-        print('"'+ecode_list+'"')
+        return (ecode_list)
 ```
