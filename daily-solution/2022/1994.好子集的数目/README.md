@@ -39,7 +39,3 @@ nums 中的 子集 是通过删除 nums 中一些（可能一个都不删除�
 1 <= nums.length <= 105
 1 <= nums[i] <= 30
 
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/the-number-of-good-subsets
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
