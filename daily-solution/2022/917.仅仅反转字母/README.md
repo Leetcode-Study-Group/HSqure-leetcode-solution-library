@@ -30,3 +30,25 @@
 `1 <= s.length <= 100`
 `s` 仅由 ASCII 值在范围 `[33, 122]` 的字符组成
 `s` 不含 `'\"'` 或 `'\\'`
+
+## 题解
+### 最优题解
+
+```python
+
+```
+
+### 我的题解
+**思路:**
+逆序指针即可,非字母则跳过. 将所有需要反转的字母字符对应的下标(指针)存入数组`p`, 新字符串list复制原list之后,使用逆序`p`作为下标读取原list.
+
+```python
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        orig_s = list(s)
+        new_s = list(s)
+        p = [i for i in range(0, len(orig_s)) if str.isalpha(orig_s[i])]
+        for i in range(0, len(p)):
+            new_s[p[i]] = orig_s[p[len(p)-1-i]]
+        return ''.join(new_s)
+```
