@@ -35,7 +35,10 @@
 ### 最优题解
 
 ```python
-
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        p = [i for i in s if i.isalpha()]
+        return ''.join([i if not i.isalpha() else p.pop() for i in s])
 ```
 
 ### 我的题解
