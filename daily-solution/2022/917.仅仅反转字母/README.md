@@ -47,7 +47,7 @@ class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
         orig_s = list(s)
         new_s = list(s)
-        p = [i for i in range(0, len(orig_s)) if str.isalpha(orig_s[i])]
+        p = [i for i in range(0, len(orig_s)) if orig_s[i].isalpha()]
         for i in range(0, len(p)):
             new_s[p[i]] = orig_s[p[len(p)-1-i]]
         return ''.join(new_s)
