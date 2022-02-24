@@ -10,7 +10,7 @@
 
 返回一个大小为 n 的数组 answer ，其中 answer[i] 是球放在顶部的第 i 列后从底部掉出来的那一列对应的下标，如果球卡在盒子里，则返回 -1 。
 
- 
+<img src="../../../document_source/ball.jpg" width = "400" alt="" align=center />
 
 示例 1：
 
