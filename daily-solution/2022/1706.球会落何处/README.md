@@ -48,4 +48,30 @@ b4 球开始放在第 4 列上，会卡在第 2、3 列和第 1 行之间的 "V"
 - `grid[i][j]` 为 `1` 或 `-1`
 
 
+## 题解
+### 我的题解
+```python
+class Solution:
+    def findBall(self, grid: List[List[int]]) -> List[int]:
+        # 先初始化第一行
+        row_len = len(grid[0])
+        result = [i for i in range(0, row_len)]
+        for row in grid:
+            # print(result) 
+            # 更新更改后的下标位置
+            for i in range(0, row_len):
+                # 判断是否碰壁
+                if result[i] > row_len-1 or result[i] < 0:
+                    result[i] = -1
+                # 判断是否有V谷
+                if i+1<=row_len-1 and row[i]==1:
+                    if row[i+1]==-1:
+                        print(result)
+                        result[result.index(i)]=-1
+                        result[result.index(i+1)]=-1
+                    else:
+                        result[i] = result[i] + row[i]
 
+            print(result)    
+
+  ```
