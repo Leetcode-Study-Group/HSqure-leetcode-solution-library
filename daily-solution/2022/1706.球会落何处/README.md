@@ -42,16 +42,10 @@ b4 球开始放在第 4 列上，会卡在第 2、3 列和第 1 行之间的 "V"
 
 **提示：**
 
-`m == grid.length`
-
-
-`n == grid[i].length`
-
-
-`1 <= m, n <= 100`
-
-
-`grid[i][j]` 为 `1` 或 `-1`
+- `m == grid.length`
+- `n == grid[i].length`
+- `1 <= m, n <= 100`
+- `grid[i][j]` 为 `1` 或 `-1`
 
 
 
