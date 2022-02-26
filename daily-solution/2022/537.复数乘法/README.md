@@ -8,18 +8,29 @@ i2 == -1
 
  
 
-示例 1：
-
+**示例 1：**
+```python
 输入：num1 = "1+1i", num2 = "1+1i"
 输出："0+2i"
 解释：(1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i ，你需要将它转换为 0+2i 的形式。
-示例 2：
-
+```
+**示例 2：**
+```python
 输入：num1 = "1+-1i", num2 = "1+-1i"
 输出："0+-2i"
 解释：(1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i ，你需要将它转换为 0+-2i 的形式。 
- 
+``` 
 
 提示：
 
 num1 和 num2 都是有效的复数表示。
+
+## 题解
+### 最优题解
+```python
+class Solution:
+    def complexNumberMultiply(self, num1: str, num2: str) -> str:
+        real1, image1 = map(int, num1[:-1].split('+'))
+        real2, image2 = map(int, num2[:-1].split('+'))
+        return f'{real1*real2-image1*image2}+{real1*image2+image1*real2}i'
+ ```
