@@ -11,4 +11,4 @@
 
 ## 思维导图
 
-<img src="../../../document_source/Disjoint-set-data-structure.png" width = "400" alt="" align=center />
+<img src="../../../document_source/Disjoint-set-data-structure.png" width = "1024" alt="" align=center />
