@@ -13,6 +13,8 @@
 
 <img src="../../../document_source/Disjoint-set-data-structure.png" alt="" align=center />
 
+---
+
 ## 1.并查集动态处理的两个问题
 ### 查询（Find）
 查询图中的两个顶点是不是在同一个集合中。
