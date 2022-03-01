@@ -1,4 +1,4 @@
-# Graph Thory 图论
+# 图论 (Graph Thory)
 内容:
 - 并查集数据结构 (Union Find data structure)
 - 「图」的深度优先搜索算法
