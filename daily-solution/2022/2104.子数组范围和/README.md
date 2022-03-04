@@ -8,7 +8,7 @@
  
 
 示例 1：
-
+```python3
 输入：nums = [1,2,3]
 输出：4
 解释：nums 的 6 个子数组如下所示：
@@ -19,8 +19,9 @@
 [2,3]，范围 = 3 - 2 = 1
 [1,2,3]，范围 = 3 - 1 = 2
 所有范围的和是 0 + 0 + 0 + 1 + 1 + 2 = 4
+```
 示例 2：
-
+```python3
 输入：nums = [1,3,3]
 输出：4
 解释：nums 的 6 个子数组如下所示：
@@ -31,15 +32,32 @@
 [3,3]，范围 = 3 - 3 = 0
 [1,3,3]，范围 = 3 - 1 = 2
 所有范围的和是 0 + 0 + 0 + 2 + 0 + 2 = 4
+```
+```python3
 示例 3：
 
 输入：nums = [4,-2,-3,4,1]
 输出：59
 解释：nums 中所有子数组范围的和是 59
- 
+ ```
 
 提示：
 
-1 <= nums.length <= 1000
--109 <= nums[i] <= 109
+- `1 <= nums.length <= 1000`
+- `-109 <= nums[i] <= 109`
  
+## 题解
+### 最优题解
+```python
+class Solution:
+    def subArrayRanges(self, nums: List[int]) -> int:
+        ans, n = 0, len(nums)
+        for i in range(n):
+            minVal, maxVal = inf, -inf
+            for j in range(i, n):
+                minVal = min(minVal, nums[j])
+                maxVal = max(maxVal, nums[j])
+                ans += maxVal - minVal
+        return ans
+
+```
