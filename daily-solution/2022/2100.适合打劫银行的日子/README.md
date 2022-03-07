@@ -55,6 +55,31 @@ security[i - time] >= security[i - time + 1] >= ... >= security[i] <= ... <= sec
 
 ## 题解
 ### 最优题解
+**思路**
+
+**前缀和**的思想: 
+先预处理从前往后和从后往前最多非递减的数量，如`[0,1,2,3,0,1,2]`就表示从`0-3`和`4-6`是 **非递减** 的，但是`3-4`中间出现了 **递减** 的情况，这样就可以通过减法很方便地得到某一段时间里是否是非递减的，比如`pre[i + time] - pre[i] == time` 表示`i`到`i+time`是 **非递减** 的，如果存在递减的情况，那么肯定会有`pre[i + time] - pre[i] < time`，从后往前同理,然后枚举日期，把符合要求的日期加入`ans`即可.
+
+```cpp
+class Solution:
+    def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+        n = len(security)
+        pre, post = [0] * n, [0] * n
+        for i in range(1, n):
+            if security[i] >= security[i-1]:
+                pre[i] = pre[i-1] + 1
+                
+        for i in range(n-2, -1, -1):
+            if security[i] >= security[i+1]:
+                post[i] = post[i+1] + 1
+        
+        ans = []
+        for i in range(time, n - time):
+            if pre[i + time] - pre[i] == time and post[i - time] - post[i] == time:
+                ans.append(i)
+
+        return ans
+```
 ```python
 
 ```
