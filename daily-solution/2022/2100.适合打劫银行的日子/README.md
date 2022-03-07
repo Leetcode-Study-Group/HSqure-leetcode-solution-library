@@ -52,3 +52,37 @@ security[i - time] >= security[i - time + 1] >= ... >= security[i] <= ... <= sec
 
 - `1 <= security.length <= 105`
 - `0 <= security[i], time <= 105`
+
+## 题解
+### 最优题解
+```python
+
+```
+
+### 我的题解
+```python
+class Solution:
+    def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+        gdlist=[]
+        window=[1,-1]
+        if len(security) < 2 * time + 1:
+            return gdlist
+        for i in range(time, len(security)-time):
+            good_day_sign = True
+            for offset in range(0, time):
+                # 满足条件则将当前i计入goodday list
+                if (security[i-offset] * window[0] + security[i-(offset+1)] * window[1] <=0) and \
+                    (security[i+offset] * window[0] + security[i+(offset+1)] * window[1] <=0):
+                   # 该点满足条件
+                    sign = True
+                else:
+                    sign = False
+                # 该轮(i的time范围内)所有点是否满足条件
+                good_day_sign = good_day_sign & sign
+                # print(i,offset,sign,good_day_sign)
+            # print(good_day_sign)
+            if good_day_sign:
+                gdlist.append(i)
+
+        return gdlist
+```
