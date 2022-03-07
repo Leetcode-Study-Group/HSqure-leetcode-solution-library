@@ -53,6 +53,8 @@ security[i - time] >= security[i - time + 1] >= ... >= security[i] <= ... <= sec
 - `1 <= security.length <= 105`
 - `0 <= security[i], time <= 105`
 
+---
+
 ## 题解
 ### 最优题解
 **思路**
