@@ -7,7 +7,7 @@
 - 第 `i` 天前连续 `time` 天警卫数目都是 **非递增** 的。
 - 第 `i` 天后连续 `time` 天警卫数目都是 **非递减** 的。
 
-更正式的，第 i 天是一个合适打劫银行的日子当且仅当：
+更正式的，第 `i` 天是一个合适打劫银行的日子当且仅当：
 ```python
 security[i - time] >= security[i - time + 1] >= ... >= security[i] <= ... <= security[i + time - 1] <= security[i + time]
 ```
