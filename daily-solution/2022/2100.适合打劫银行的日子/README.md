@@ -61,28 +61,17 @@ security[i - time] >= security[i - time + 1] >= ... >= security[i] <= ... <= sec
 
 **前缀和**思想: 
 
-先预处理从前往后和从后往前最多 **非递减** 的数量，如`[0,1,2,3,0,1,2]`就表示从`0-3`和`4-6`是 **非递减** 的，但是`3-4`中间出现了 **递减** 的情况，这样就可以通过减法很方便地得到某一段时间里是否是 **非递减** 的，比如`pre[i + time] - pre[i] == time` 表示`i`到`i+time`是 **非递减** 的，如果存在 **递减** 的情况，那么肯定会有`pre[i + time] - pre[i] < time`，从后往前同理,然后枚举日期，把符合要求的日期加入`ans`即可.
+前缀和
+为了方便，我们令 nn 为 securitysecurity 长度。
 
-```c++
-class Solution:
-    def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
-        n = len(security)
-        pre, post = [0] * n, [0] * n
-        for i in range(1, n):
-            if security[i] >= security[i-1]:
-                pre[i] = pre[i-1] + 1
-                
-        for i in range(n-2, -1, -1):
-            if security[i] >= security[i+1]:
-                post[i] = post[i+1] + 1
-        
-        ans = []
-        for i in range(time, n - time):
-            if pre[i + time] - pre[i] == time and post[i - time] - post[i] == time:
-                ans.append(i)
+根据题目对「适合打劫银行的日子」的定义，首先我们可以确定答案落在 [time, n - time) 范围内，另外规定了「适合打劫银行的日子」左右侧需要满足「非递增」和「非递减」的性质。
 
-        return ans
-```
+首先我们可以预处理 g 数组，g[i]g[i] 代表当前时间 security[i] 与前一时间 security[i - 1]的大小关系，当 security[i] > security[i - 1]security[i]>security[i−1] 时有 g[i] = 1g[i]=1，当 security[i] < security[i - 1]security[i]<security[i−1] 时有 g[i] = -1g[i]=−1，否则 g[i] = 0g[i]=0，另外我们特别的有 g[0] = 0g[0]=0 的边界情况。
+
+然后我们对 g 应用「前缀和」思想：使用 a 数组记录前缀 11 的数量，使用 b 数组记录前缀 -1−1 的数量。
+
+最终，如果 ii 为「适合打劫银行的日子」，那么满足 time <= i < n - timetime<=i<n−time，且满足 (i - time, i](i−time,i] 范围前缀 11 数量为 00，(i, i + time](i,i+time] 范围前缀 -1−1 数量为 00。
+
 ```python
 
 ```
