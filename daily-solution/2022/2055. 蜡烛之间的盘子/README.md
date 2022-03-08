@@ -38,3 +38,15 @@ s 只包含字符 '*' 和 '|' 。
 queries[i].length == 2
 0 <= lefti <= righti < s.length
 ```
+## 题解
+# 我的题解
+```python
+class Solution:
+    def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
+        # 预处理部分
+        # 构造前缀和数组
+        n = len(s)
+        pre=[0]*n
+        for i in range(0,n):
+            pre[i+1] = 
+```
