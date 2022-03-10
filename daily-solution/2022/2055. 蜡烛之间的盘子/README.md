@@ -40,13 +40,28 @@ queries[i].length == 2
 ```
 ## 题解
 # 我的题解
+**思路：**
+前缀和思想，先遍历完`s`,构造3个预处理数组，再根据`requires`指令来查表得到结果。
+
 ```python
 class Solution:
     def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
         # 预处理部分
         # 构造前缀和数组
         n = len(s)
-        pre=[0]*n
-        for i in range(0,n):
-            pre[i+1] = 
+        candl = [-1]*n
+        candr = [-1]*n
+        platecnt = [0]*n
+
+        
+        for i in range(1, n):
+            # 输入参数right从0至n-1开始遍历时，所在位置左侧最近的蜡烛'|'的下标(包括本身)，没有则为-1
+            candl[i] = i if s[i]=='|' else candl[i-1]
+            # 输入参数left从n-1至0开始遍历时，所在位置右侧最近的蜡烛'|'的下标(包括本身)，没有则为-1
+            candr[n-i-1] = n-i-1 if s[n-i-1]=='|' else candr[n-i]
+            # 所在位置左侧累计盘子个数
+            platecnt
+
+        print(candl, candr)
+
 ```
