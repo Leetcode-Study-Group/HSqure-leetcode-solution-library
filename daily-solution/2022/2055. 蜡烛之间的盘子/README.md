@@ -48,7 +48,7 @@ queries[i].length == 2
     result = platecnt[candl[right]] - platecnt[candr[left]]
 ```
 
-需要注意的是边界值，即数组`candl`和`candr`的初始值，`candl`的首个和`candr`最后一个是无信息的，所以分别用`0`和`-1`来作为边界值，这样读取的时候就是第一个以及最后一个。
+需要注意的是边界值，即数组`candl`和`candr`的初始值，`candl`的首个和`candr`最后一个是无信息的，所以分别用`0`和`-1`来作为边界值，这样在`platecnt`数组中读取的时候就是第一个以及最后一个。
 
 ```python
 class Solution:
