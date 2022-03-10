@@ -45,6 +45,7 @@ queries[i].length == 2
 
 - `platecnt[i]`数组无差别存储从`0`累加`i`的盘子数(前缀和)
 - `candl`和`candr`数组作为查表函数
+
 其中，`candl`和`candr`数组通过建立某种映射关系，来解决如何将给定的范围`left`和`right`转化为有效盘子数量的计数范围，最后只要拿着转换后的范围去`platecnt`数组取差分即可：
 ```
     result = platecnt[candl[right]] - platecnt[candr[left]]
