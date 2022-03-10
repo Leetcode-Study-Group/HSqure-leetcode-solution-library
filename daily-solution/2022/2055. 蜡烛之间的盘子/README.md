@@ -102,4 +102,4 @@ Plate number: [0, 1, 2, 3, 3, 4, 5, 5, 5, 6, 7, 8, 8]
 
 ```
 图解：
-<img src="../../../document_source/plate.png" alt="" align=center />
+<img src="../../../document_source/plate.png" width = "400" alt="" align=center />
