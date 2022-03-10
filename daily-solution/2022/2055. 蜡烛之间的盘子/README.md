@@ -64,7 +64,7 @@ class Solution:
         platecnt = [0]*n
         result_list=[]
         for i in range(1, n):
-            # 输入参数right从0至n-1开始遍历时，所在位置左侧最近的蜡烛'|'的下标(包括本身)，没有则为-1
+            # 输入参数right从0至n-1开始遍历时，所在位置左侧最近的蜡烛'|'的下标(包括本身)，没有则为0
             candl[i] = i if s[i]=='|' else candl[i-1]
             # 输入参数left从n-1至0开始遍历时，所在位置右侧最近的蜡烛'|'的下标(包括本身)，没有则为-1
             candr[n-i-1] = n-i-1 if s[n-i-1]=='|' else candr[n-i]
