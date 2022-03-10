@@ -6,7 +6,7 @@ n 叉树 在输入中按层序遍历进行序列化表示，每组子节点由�
 
 示例 1：
 
-<img src="../../../document_source/narytreeexample.png" alt="" align=center />
+<img src="../../../document_source/narytreeexample.png" width="600" alt="" align=center />
 
 ```python
 输入：root = [1,null,3,2,4,null,5,6]
@@ -15,7 +15,7 @@ n 叉树 在输入中按层序遍历进行序列化表示，每组子节点由�
 
 示例 2：
 
-<img src="../../../document_source/sample_4_964.png" alt="" align=center />
+<img src="../../../document_source/sample_4_964.png" width="600" alt="" align=center />
 
 ```python
 输入：root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
