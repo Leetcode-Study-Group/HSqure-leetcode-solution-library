@@ -53,7 +53,6 @@ class Solution:
         candr = [-1]*n
         platecnt = [0]*n
 
-        
         for i in range(1, n):
             # 输入参数right从0至n-1开始遍历时，所在位置左侧最近的蜡烛'|'的下标(包括本身)，没有则为-1
             candl[i] = i if s[i]=='|' else candl[i-1]
