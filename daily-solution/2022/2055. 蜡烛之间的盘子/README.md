@@ -18,9 +18,9 @@
 - queries[0] 有两个盘子在蜡烛之间。
 - queries[1] 有三个盘子在蜡烛之间。
 ```
+
 示例 2:
 ```python
-ex-2
 
 输入：s = "***|**|*****|**||**|*", queries = [[1,17],[4,5],[14,17],[5,11],[15,16]]
 输出：[9,0,0,0,0]
@@ -79,5 +79,25 @@ class Solution:
         # print(f'{s}\n\nRight: {candl}\nLeft: {candr}\nPlate number: {platecnt}')
         return result_list
 
+```
+
+**图解示例：**
+
+```python
+输入：s = "***|**||***|*", queries = [[2,8]]
+输出：[2]
+```
+Debug信息：
+```python
+left[2]: 3
+right[8]: 7
+plate num: 2
+
+***|**||***|*
+
+Right: [0, 0, 0, 3, 3, 3, 6, 7, 7, 7, 7, 11, 11]
+Left: [3, 3, 3, 3, 6, 6, 6, 7, 11, 11, 11, 11, -1]
+Plate number: [0, 1, 2, 3, 3, 4, 5, 5, 5, 6, 7, 8, 8]
 
 ```
+
