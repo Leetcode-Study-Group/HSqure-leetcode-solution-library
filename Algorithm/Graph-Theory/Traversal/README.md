@@ -1,4 +1,5 @@
-树的遍历(Traversal)
+# 树的遍历(Traversal)
+```C#
 如下图, 三种遍历方式, 可用同一种递归思想实现
 
 
@@ -465,3 +466,4 @@ var increasingBST = function(root) {
   }
   return res
 }
+```
