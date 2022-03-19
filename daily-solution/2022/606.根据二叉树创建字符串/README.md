@@ -35,6 +35,21 @@
 除了我们不能省略第一个对括号来中断输入和输出之间的一对一映射关系。
 ```
 ## 题解
+### 最优题解
+**递归**
+```python
+class Solution:
+    def tree2str(self, root: Optional[TreeNode]) -> str:
+        if root is None:
+            return ""
+        if root.left is None and root.right is None:
+            return str(root.val)
+        if root.right is None:
+            return f"{root.val}({self.tree2str(root.left)})"
+        return f"{root.val}({self.tree2str(root.left)})({self.tree2str(root.right)})"
+
+```
+
 ### 我的题解
 ```python
 # Definition for a binary tree node.
@@ -48,12 +63,14 @@ class Solution:
         def traversal(root: TreeNode):
             if not root:
                 return
+            res.append('(')
             res.append(str(root.val))
+            if root.left is None and root.right is not None:
+                res.append('()')
             traversal(root.left)
             traversal(root.right)
-
+            res.append(')')
         res=[]
         traversal(root)
-
-        return ''.join(res)
+        return ''.join(res[1:-1])
 ```
