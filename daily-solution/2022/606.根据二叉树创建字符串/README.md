@@ -34,3 +34,26 @@
 解释: 和第一个示例相似，
 除了我们不能省略第一个对括号来中断输入和输出之间的一对一映射关系。
 ```
+## 题解
+### 我的题解
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def tree2str(self, root: Optional[TreeNode]) -> str:
+        def traversal(root: TreeNode):
+            if not root:
+                return
+            res.append(str(root.val))
+            traversal(root.left)
+            traversal(root.right)
+
+        res=[]
+        traversal(root)
+
+        return ''.join(res)
+```
