@@ -53,8 +53,7 @@ class Solution:
         if k - root.val in self.s:
             return True
         self.s.add(root.val)
-        return self.findTarget(root.left, k) or self.findTarget(root.right, k)
-        
+        return self.findTarget(root.left, k) or self.findTarget(root.right, k) 
 ```
 #### 复杂度分析
 
@@ -91,6 +90,5 @@ class Solution:
                 q.append(node.left)
             if node.right:
                 q.append(node.right)
-        return False
-        
+        return False        
 ```
