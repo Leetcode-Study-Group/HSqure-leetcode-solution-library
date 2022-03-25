@@ -27,7 +27,6 @@
 #### 方法一：深度优先搜索 + 哈希表
 **思路和算法**
 
-
 我们可以使用深度优先搜索的方式遍历整棵树，用哈希表记录遍历过的节点的值。
 
 对于一个值为 `x` 的节点，我们检查哈希表中是否存在 `k - x` 即可。如果存在对应的元素，那么我们就可以在该树上找到两个节点的和为 `k`； 否则，我们将 `x` 放入到哈希表中。
@@ -41,11 +40,10 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
 
+class Solution:
     def __init__(self):
         self.s = set()
-
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
         if not root:
             return False
@@ -53,7 +51,6 @@ class Solution:
             return True
         self.s.add(root.val)
         return self.findTarget(root.left, k) or self.findTarget(root.right, k)
-
 ```
 #### 复杂度分析
 
