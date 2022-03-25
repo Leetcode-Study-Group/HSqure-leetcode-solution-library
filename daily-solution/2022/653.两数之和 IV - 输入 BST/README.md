@@ -56,3 +56,34 @@ class Solution:
 
 - 时间复杂度：`O(n)`，其中 `n` 为二叉搜索树的大小。我们需要遍历整棵树一次。
 - 空间复杂度：`O(n)`，其中 `n` 为二叉搜索树的大小。主要为哈希表的开销，最坏情况下我们需要将每个节点加入哈希表一次。
+
+#### 方法二：广度优先搜索 + 哈希表
+**思路和算法**
+
+我们可以使用广度优先搜索的方式遍历整棵树，用哈希表记录遍历过的节点的值。
+
+具体地，我们首先创建一个哈希表和一个队列，将根节点加入队列中，然后执行以下步骤：
+
+从队列中取出队头，假设其值为 `x`；
+检查哈希表中是否存在 `k - x`，如果存在，返回 `True`；
+否则，将该节点的左右的非空子节点加入队尾；
+重复以上步骤，直到队列为空；
+如果队列为空，说明树上不存在两个和为 k 的节点，返回 `False`。
+
+```python
+
+class Solution:
+    def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        s = set()
+        q = deque([root])
+        while q:
+            node = q.popleft()
+            if k - node.val in s:
+                return True
+            s.add(node.val)
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+        return False
+```
