@@ -33,7 +33,10 @@
 
 如果遍历完整棵树都不存在对应的元素，那么该树上不存在两个和为 `k` 的节点。
 
+**代码**
+
 ```python
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -51,6 +54,7 @@ class Solution:
             return True
         self.s.add(root.val)
         return self.findTarget(root.left, k) or self.findTarget(root.right, k)
+        
 ```
 #### 复杂度分析
 
@@ -70,6 +74,8 @@ class Solution:
 重复以上步骤，直到队列为空；
 如果队列为空，说明树上不存在两个和为 k 的节点，返回 `False`。
 
+**代码**
+
 ```python
 
 class Solution:
@@ -86,4 +92,5 @@ class Solution:
             if node.right:
                 q.append(node.right)
         return False
+        
 ```
