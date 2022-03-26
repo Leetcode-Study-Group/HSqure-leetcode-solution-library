@@ -35,9 +35,14 @@
 class Solution:
     def trailingZeroes(self, n: int) -> int:
         cnt=0
-        print(int(log(35,5)))
-        # for fam5 in range(1, (n//5)+1):
-        #     print(5*fam5, cnt)
-        #     cnt+=int(log(5*fam5,5))
-        return cnt
+        # 先把其中有5因数(不止含一个)的数拿出来5，10，15...
+        # 符合条件的数的数量为(n//5)+1
+        for fam5 in range(1, (n//5)+1):
+            # 还原该数
+            muti5 = 5 * fam5
+            # 解剖含多个5因数的数，把5都取出来，直到不再含有5因数
+            while muti5%5==0:
+                muti5//=5
+                cnt+=1
+        return cnt+1
 ```
