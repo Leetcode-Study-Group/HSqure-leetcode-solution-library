@@ -64,7 +64,7 @@ class Solution:
                         填满则下一个,直到值用完,格子数为n,空格子初始值为1
             """    
             # 商(填满的格子数), 余数 
-            remain = divmod(missing_sum-n, 5)
+            num, remain = divmod(missing_sum-n, 5)
             # 初始填1
             missing_list = [1] * n
             # 填满部分
