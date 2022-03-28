@@ -38,3 +38,19 @@ k 个数字的 平均值 为这些数字求和后再除以 k 。
 m == rolls.length
 1 <= n, m <= 105
 1 <= rolls[i], mean <= 6
+
+```python
+class Solution:
+    def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
+        missing_list=[]
+        missing_sum = (len(rolls)+n)*mean - sum(rolls)
+        if missing_sum > n * 6 or missing_sum < n:
+            return missing_list
+        else:
+            for i in range(1, n+1):
+                # missing_sum-=missing_sum%6
+                missing_list.append(missing_sum-(n+1-i)*6)
+                print(missing_list)
+
+
+```
