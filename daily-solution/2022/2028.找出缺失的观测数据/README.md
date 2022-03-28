@@ -43,12 +43,8 @@
 - `1 <= rolls[i], mean <= 6`
 
 ## 题解
-### 最优题解
-```python
-
-```
-### 我的题解
-**思路:** 难点在于剩下的值的分配方式.
+### 方法一
+**思路:** 难点在于剩下的值的分配方式.构造方式为优先填满能填满的部分.
 ```python
 
 class Solution:
@@ -64,12 +60,28 @@ class Solution:
                         填满则下一个,直到值用完,格子数为n,空格子初始值为1
             """    
             # 商(填满的格子数), 余数 
-            num, remain = divmod(missing_sum-n, 5)
+            num, reminder = divmod(missing_sum-n, 5)
             # 初始填1
             missing_list = [1] * n
             # 填满部分
             missing_list[:num] = [6] * num
             # 余出部分
-            missing_list[-1] += remain
+            missing_list[-1] += reminder
             return missing_list
+```
+
+---
+
+### 方法二
+**思路:** 构造方式为先平均分配,把余下的数再分摊
+```python
+
+class Solution:
+    def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
+        missingSum = mean * (n + len(rolls)) - sum(rolls)
+        if not n <= missingSum <= n * 6:
+            return []
+        quotient, remainder = divmod(missingSum, n)
+        return [quotient + 1] * remainder + [quotient] * (n - remainder)
+
 ```
