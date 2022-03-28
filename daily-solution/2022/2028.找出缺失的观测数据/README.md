@@ -53,7 +53,8 @@
 
 class Solution:
     def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
-        missing_sum = (len(rolls)+n)*mean - sum(rolls)
+        # 缺失部分数据值之和 = (总数据个数 * 总数据值均值) - 已知数据值之和
+        missing_sum = (len(rolls)+n) * mean - sum(rolls)
         # 不符合骰子表达范围则返回空
         if missing_sum > n * 6 or missing_sum < n:
             return []
