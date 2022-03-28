@@ -44,14 +44,20 @@ m == rolls.length
 
 ```
 ### 我的题解
+**思路:** 难点在于剩下的值的分配方式.
 ```python
 
 class Solution:
     def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
         missing_sum = (len(rolls)+n)*mean - sum(rolls)
+        # 不符合骰子表达范围则返回空
         if missing_sum > n * 6 or missing_sum < n:
             return []
         else:
+            """   
+            均值分配方式: 水倒冰格.将这部分的和(missing_sum)逐个填入6容量的区间,
+                        填满则下一个,直到值用完,格子数为n,空格子初始值为1
+            """    
             # 余数
             remain = (missing_sum-n)%5
             # 填满的格子数
