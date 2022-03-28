@@ -63,10 +63,8 @@ class Solution:
             均值分配方式: 水倒冰格.将这部分的和(missing_sum)逐个填入6容量的区间,
                         填满则下一个,直到值用完,格子数为n,空格子初始值为1
             """    
-            # 余数
-            remain = (missing_sum-n)%5
-            # 填满的格子数
-            num = (missing_sum-n)//5
+            # 商(填满的格子数), 余数 
+            remain = divmod(missing_sum-n, 5)
             # 初始填1
             missing_list = [1] * n
             # 填满部分
