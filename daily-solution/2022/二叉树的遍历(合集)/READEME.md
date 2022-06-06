@@ -178,9 +178,10 @@ class Solution:
 ---
 
 # Part 3. 层序遍历
+逐层地从左到右访问所有节点。
 
 ## 102. 二叉树的层序遍历
-
+给你二叉树的根节点 `root` ，返回其节点值的 **层序遍历** 。 
 示例:
 
 ```python
@@ -197,6 +198,20 @@ class Solution:
 ### 题解
 
 ```python
-
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        res=[]
+        # Breadth-First Search
+        def bfs(root: TreeNode, deepth):
+            # print(res, deepth)
+            if not root:
+                return
+            if len(res) < deepth:
+                res.append([])
+            bfs(root.left, deepth+1)
+            res[deepth-1].append(root.val)
+            bfs(root.right, deepth+1)
+        bfs(root,1)
+        return res
 
 ```
