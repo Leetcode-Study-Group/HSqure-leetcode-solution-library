@@ -63,7 +63,7 @@ class Solution:
         def pdfs(node: 'Node'):
             if node is None:
                 return
-            ans.append(node.val)
+            res.append(node.val)
             for ch in node.children:
                 pdfs(ch)
         pdfs(root)
