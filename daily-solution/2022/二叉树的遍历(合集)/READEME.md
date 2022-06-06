@@ -22,23 +22,18 @@ PreOrder, 按照先访问根节点的顺序。
 ### 题解1:
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res=[]
-        def traversal(root: TreeNode):
+        # Pre-Order Deep-First Search
+        def pdfs(root: TreeNode):
             if not root:
                 return
             res.append(root.val)
-            traversal(root.left)
-            traversal(root.right)
-        traversal(root)
+            pdfs(root.left)
+            pdfs(root.right)
+        pdfs(root)
         return res
 ```
 ## 589. N叉树的前序遍历
@@ -63,13 +58,51 @@ class Solution:
 ```python
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-        ans = []
-        def dfs(node: 'Node'):
+        res = []
+        # Pre-Order Deep-First Search
+        def pdfs(node: 'Node'):
             if node is None:
                 return
             ans.append(node.val)
             for ch in node.children:
-                dfs(ch)
-        dfs(root)
-        return ans
+                pdfs(ch)
+        pdfs(root)
+        return res
+```
+
+---
+
+# Part 2. 中序遍历
+InOrder, 按照根节点在中间访问的顺序
+
+## 94. 二叉树的中序遍历
+给定一个二叉树的根节点 `root` ，返回 它的 **中序** 遍历 。
+
+示例 1：
+```python
+输入：root = [1,null,2,3]
+
+       1
+         \
+          2
+         /    
+        3  
+
+输出：[1,3,2]
+```
+### 题解
+
+```python
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        ans = []
+        # In-Order Deep-First Search
+        def idfs(root: TreeNode):
+            if not root:
+                return
+            idfs(root.left)
+            res.append(root.val)
+            idfs(root.right)
+        idfs(root)
+        return res
 ```
