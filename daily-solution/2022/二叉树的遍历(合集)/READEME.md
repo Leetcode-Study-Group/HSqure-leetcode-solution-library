@@ -265,7 +265,7 @@ class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
         if not root:
             return []
-        ans = list()
+        res = list()
         q = deque([root])
 
         while q:
@@ -276,9 +276,9 @@ class Solution:
                 level.append(cur.val)
                 for child in cur.children:
                     q.append(child)
-            ans.append(level)
+            res.append(level)
 
-        return ans
+        return res
 
 
 ```
