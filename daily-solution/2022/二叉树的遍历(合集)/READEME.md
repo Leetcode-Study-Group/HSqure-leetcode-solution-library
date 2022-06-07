@@ -205,6 +205,7 @@ class Solution:
         def bfs(root: TreeNode, deepth):
             if not root:
                 return
+            # 为每一层新建一个维度的list
             if len(res)-1 < deepth:
                 res.append([])
             bfs(root.left, deepth+1)
