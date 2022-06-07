@@ -249,7 +249,7 @@ class Solution:
                 return
             if len(res)-1 < deepth:
                 res.append([])
-            # 先序或者后序dfs都可,然后根据deepth来搜集每层的元素来达成bfs
+            # 先序或者后序dfs都可,然后根据deepth来收集每层的元素来达成bfs
             res[deepth].append(root.val)
             for node in root.children:
                 bfs(node, deepth+1)
