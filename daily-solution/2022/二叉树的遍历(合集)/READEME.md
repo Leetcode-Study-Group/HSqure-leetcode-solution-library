@@ -64,8 +64,8 @@ class Solution:
             if not root:
                 return
             res.append(root.val)
-            for ch in root.children:
-                predfs(ch)
+            for node in root.children:
+                predfs(node)
         predfs(root)
         return res
 ```
@@ -168,8 +168,8 @@ class Solution:
         def posdfs(root: 'Node'):
             if not root:
                 return
-            for ch in root.children:
-                posdfs(ch)
+            for node in root.children:
+                posdfs(node)
             res.append(root.val)
         posdfs(root)
         return res
@@ -213,5 +213,30 @@ class Solution:
             bfs(root.right, deepth+1)
         bfs(root,0)
         return res
+
+```
+
+## 429. N 叉树的层序遍历
+
+示例：
+
+```python
+
+输入：root = [1,null,3,2,4,null,5,6]
+
+        1
+     /  |  \
+    3   2   4
+   / \   
+  5   6
+
+输出：[[1],[3,2,4],[5,6]]
+
+```
+
+### 题解
+
+```python
+
 
 ```
