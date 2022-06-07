@@ -248,7 +248,6 @@ class Solution:
             if not root:
                 return
             if len(res)-1 < deepth:
-                # print(deepth, root.val)
                 res.append([])
             # 先序或者后序dfs都可,然后根据deepth来搜集每层的元素来达成bfs
             res[deepth].append(root.val)
