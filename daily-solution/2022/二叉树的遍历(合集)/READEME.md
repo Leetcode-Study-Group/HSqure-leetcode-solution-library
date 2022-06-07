@@ -264,21 +264,20 @@ class Solution:
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
         if not root:
-            return []
-        res = list()
+            return
+        res=[]
+        # 创建队列
         q = deque([root])
-
         while q:
+            level=[]
             cnt = len(q)
-            level = list()
             for _ in range(cnt):
                 cur = q.popleft()
                 level.append(cur.val)
                 for child in cur.children:
                     q.append(child)
             res.append(level)
-
-        return res
+         return res
 
 
 ```
