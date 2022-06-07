@@ -203,15 +203,14 @@ class Solution:
         res=[]
         # Breadth-First Search
         def bfs(root: TreeNode, deepth):
-            # print(res, deepth)
             if not root:
                 return
-            if len(res) < deepth:
+            if len(res)-1 < deepth:
                 res.append([])
             bfs(root.left, deepth+1)
-            res[deepth-1].append(root.val)
+            res[deepth].append(root.val)
             bfs(root.right, deepth+1)
-        bfs(root,1)
+        bfs(root,0)
         return res
 
 ```
