@@ -270,8 +270,7 @@ class Solution:
         q = deque([root])
         while q:
             level=[]
-            cnt = len(q)
-            for _ in range(cnt):
+            for _ in range(len(q)):
                 cur = q.popleft()
                 level.append(cur.val)
                 for child in cur.children:
